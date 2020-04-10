@@ -8,3 +8,14 @@
     package:
       name: httpd
       state: installed
+
+
+  - name: Install telnet
+    package:
+      name: telnet
+      state: installed
+
+  - name: Add Bob
+    package:
+      name: telnet
+      state: Present
