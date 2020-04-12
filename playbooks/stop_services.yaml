@@ -16,7 +16,7 @@
 
   - name: Stop r1soft on CentOS 6
     when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "6")
-    system:
+    service:
       name: cdp-server
       state: stopped
     ignore_errors: true    
