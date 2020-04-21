@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Create new nat gateway
+    ec2_vpc_nat_gateway:
+      state: present
+      subnet_id: subnet-01358332e296c5f3b
+      region: us-west-1
+    register: new_nat_gateway

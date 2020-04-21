@@ -1,0 +1,32 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Set up public subnet route table
+    ec2_vpc_route_table:
+      vpc_id: vpc-0a89b15b84719fb38
+      region: us-west-1
+      tags:
+        Name: Public
+      subnets:
+        - subnet-01358332e296c5f3b
+        - subnet-088231f6f1b1fa0b5
+        - subnet-080b98f4ace992be8
+      routes:
+        - dest: 0.0.0.0/0
+          gateway_id: igw-0d81aea2fa4866d5d
+    register: public_route_table
+
+  - name: Set up NAT-protected route table
+    ec2_vpc_route_table:
+      vpc_id: vpc-0a89b15b84719fb38
+      region: us-west-1
+      tags:
+        Name: Internal
+      subnets:
+        - subnet-0c5a85336a39fb6ea
+        - subnet-0b452e25597a7a3da
+        - subnet-0f5b7cb04b0571809
+      routes:
+        - dest: 0.0.0.0/0
+          gateway_id: nat-0db30b877c8677346
+    register: nat_route_table

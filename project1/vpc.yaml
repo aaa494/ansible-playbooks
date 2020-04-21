@@ -7,3 +7,21 @@
       cidr_block: 10.0.0.0/16
       region: us-west-1
       tenancy: default
+
+
+
+
+
+
+# ---
+# - hosts: localhost
+#   vars_files: 
+#   - vars.yaml
+#   tasks:
+#   - name: Create a VPC
+#     ec2_vpc_net:
+#       name: "{{vpc_name}}"
+#       cidr_block: "{{cidr_block}}"
+#       region: "{{region}}"
+#       tenancy: default
+
