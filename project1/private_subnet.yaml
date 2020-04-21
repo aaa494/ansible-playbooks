@@ -1,0 +1,35 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Create a private subnet 
+    ec2_vpc_subnet:
+      state: present
+      region: us-west-1
+      az: us-west-1a
+      vpc_id: vpc-0a89b15b84719fb38
+      cidr: 10.0.11.0/24
+      tags:
+        Name: PrivateSubnet1
+    register: private_subnet_1
+
+  - name: Create a private subnet 
+    ec2_vpc_subnet:
+      state: present
+      region: us-west-1
+      az: us-west-1a
+      vpc_id: vpc-0a89b15b84719fb38
+      cidr: 10.0.12.0/24
+      tags:
+        Name: PrivateSubnet2
+    register: private_subnet_2
+
+  - name: Create a private subnet 
+    ec2_vpc_subnet:
+      state: present
+      region: us-west-1
+      az: us-west-1b     
+      vpc_id: vpc-0a89b15b84719fb38
+      cidr: 10.0.13.0/24
+      tags:
+        Name: PrivateSubnet3
+    register: private_subnet_3

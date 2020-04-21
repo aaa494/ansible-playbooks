@@ -1,0 +1,35 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Create a public subnet 
+    ec2_vpc_subnet:
+      state: present
+      region: us-west-1
+      az: us-west-1a
+      vpc_id: vpc-0a89b15b84719fb38
+      cidr: 10.0.1.0/24
+      tags:
+        Name: PublicSubnet1
+    register: public_subnet_1
+
+  - name: Create a public subnet 
+    ec2_vpc_subnet:
+      state: present
+      region: us-west-1
+      az: us-west-1a
+      vpc_id: vpc-0a89b15b84719fb38
+      cidr: 10.0.2.0/24
+      tags:
+        Name: PublicSubnet2
+    register: public_subnet_2
+
+  - name: Create a public subnet 
+    ec2_vpc_subnet:
+      state: present
+      region: us-west-1
+      az: us-west-1b     
+      vpc_id: vpc-0a89b15b84719fb38
+      cidr: 10.0.3.0/24
+      tags:
+        Name: PublicSubnet3
+    register: public_subnet_3

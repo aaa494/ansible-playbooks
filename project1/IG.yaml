@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  tasks:
+  - name: IGW
+    ec2_vpc_igw:
+      vpc_id: vpc-0a89b15b84719fb38
+      state: present
+      region: us-west-1
+    register: igw
